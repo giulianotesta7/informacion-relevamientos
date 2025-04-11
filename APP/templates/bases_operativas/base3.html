@@ -1,0 +1,53 @@
+{% extends "layouts/base_default.html" %}
+
+{% block title %} Base 3 {% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="/static/css/bases.css">
+</head>
+<div class="base-container">
+  <div class="base-header">
+    <h1>Base 3</h1>
+  </div>
+
+  <div class="relevamientos-container">
+    {% for relevamiento in relevamientos %}
+      {% if relevamiento.base_id == 3 %}
+      <a href="/relevamiento/{{ relevamiento.id }}" class="relevamiento-card">
+        <div class="relevamiento-content">
+          <h2 class="relevamiento-title">{{ relevamiento.title }}</h2>
+        </div>
+        <div class="relevamiento-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </a>
+      {% endif %}
+    {% endfor %}
+
+    {% if not relevamientos|selectattr('base_id', 'equalto', 3)|list %}
+      <div class="empty-state">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <p>No hay relevamientos disponibles para esta base</p>
+        <a href="/base/cargar_relevamiento" class="add-relevamiento-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Agregar nuevo relevamiento
+        </a>
+      </div>
+    {% endif %}
+  </div>
+    <br>
+  <div class="action-buttons">
+    <a href="/" class="back-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Volver a bases
+    </a>
+    <br>
+    <a href="/base/cargar_relevamiento" class="add-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+      Cargar infome
+    </a>
+  </div>
+</div>
+    
+{% endblock %}

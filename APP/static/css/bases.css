@@ -1,0 +1,228 @@
+/* Estilos generales */
+:root {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Sombra más suave */
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Contenedor principal */
+.base-container {
+  max-width: 900px;
+  margin: 2rem auto; /* Aumenta el margen superior e inferior */
+  padding: 2rem 1rem;
+}
+
+/* Encabezado */
+.base-header {
+  text-align: center;
+  margin-bottom: 3rem; /* Aumenta el margen inferior */
+}
+
+.base-header h1 {
+  color: var(--text-color);
+  font-size: 2.75rem; /* Aumenta el tamaño de la fuente */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* Lista de relevamientos */
+.relevamientos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Aumenta el espaciado vertical */
+  margin-bottom: 3rem; /* Aumenta el margen inferior */
+}
+
+.relevamiento-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem; /* Ajusta el padding */
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Borde más sutil */
+}
+
+.relevamiento-card:hover {
+  transform: translateY(-2px); /* Transición más suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12); /* Sombra más suave */
+  border-color: var(--primary-color);
+}
+
+.relevamiento-content {
+  flex: 1;
+}
+
+.relevamiento-title {
+  font-weight: 600;
+  font-size: 1.3rem; /* Aumenta el tamaño de la fuente */
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.relevamiento-description {
+  color: #64748b;
+  font-size: 1rem;
+  font-weight: 400; /* Peso de fuente más ligero */
+}
+
+.relevamiento-arrow {
+  color: var(--primary-color);
+  transition: var(--transition);
+  margin-left: 1rem;
+}
+
+.relevamiento-card:hover .relevamiento-arrow {
+  transform: translateX(5px);
+}
+
+/* Estado vacío */
+.empty-state {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.empty-state svg {
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.add-relevamiento-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.add-relevamiento-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Botones de acción */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.back-btn {
+  background-color: #f1f5f9;
+  color: var(--text-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.back-btn:hover {
+  background-color: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.add-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.add-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .base-header h1 {
+      font-size: 2rem;
+  }
+
+  .relevamiento-title {
+      font-size: 1.1rem;
+  }
+
+  .action-buttons {
+      flex-direction: column-reverse;
+      width: 100%;
+      }
+
+  .back-btn, .add-btn {
+      width: 100%;
+      justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .base-container {
+      padding: 1.5rem 1rem;
+  }
+
+  .base-header {
+      margin-bottom: 1.5rem;
+  }
+
+  .relevamiento-card {
+      padding: 1rem;
+  }
+
+  .empty-state {
+      padding: 2rem 1rem;
+  }
+}

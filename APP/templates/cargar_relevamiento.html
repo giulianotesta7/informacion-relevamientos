@@ -1,0 +1,57 @@
+{% extends "layouts/base_default.html" %}
+
+{% block title %} Cargar Relevamiento {% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="/static/css/cargar_relevamiento.css">
+    <script src="https://cdn.tiny.cloud/1/{{ TINYMCE_API_KEY }}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+
+<div class="form-container">
+    <h2 class="form-title">INFORME</h2>
+    <form method="POST" class="relevamiento-form">
+        <div class="form-group">
+            <label for="title" class="form-label">Título:</label>
+            <input
+                type="text"
+                name="title"
+                id="title"
+                class="form-input"
+                placeholder="Título del relevamiento"
+                required
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="base_id" class="form-label">Base:</label>
+            <select id="base_id" name="base_id" class="form-select" required>
+                <option value="" disabled selected>Seleccione una base</option>
+                {% for base in bases %}
+                    <option value="{{ base.id }}">{{ base.base }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="description" class="form-label">Descripción:</label>
+            <textarea
+                name="description"
+                id="description"
+                rows="4"
+                class="form-textarea"
+                placeholder="Describe el relevamiento..."
+            ></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="submit-button">
+                <span class="button-icon"></span> Cargar informe
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="/static/js/main.js"></script>
+
+{% endblock %}

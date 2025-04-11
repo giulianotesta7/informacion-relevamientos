@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Base de Relevamientos {% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/base_default.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+
+            <!-- Logo a la derecha y nombre a la izquierda -->
+            <div class="site-header">
+                <h1 class="site-title">{{ user.fullName }}</h1>
+            </div>
+
+            <nav>
+                <div class="nav-links">
+                    {% if user.is_authenticated %}
+                    <a id="home" href="/" class="nav-button home-button">
+                        <span class="nav-icon">🏠</span> Inicio
+                    </a>
+                    <a id="logout" href="/logout" class="nav-button logout-button">
+                        <span class="nav-icon">🚪</span> Cerrar Sesion
+                    </a>
+                    {% else %}
+                    <a id="login" href="/login" class="nav-button login-button">
+                        <span class="nav-icon">👤</span> Ingresar
+                    </a>
+                    <a id="signUp" href="/sign-up" class="nav-button signup-button">
+                        <span class="nav-icon">📝</span> Registrarse
+                    </a>
+                    {% endif %}
+                </div>
+            </nav>
+
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="content-wrapper">
+                {% block content %}{% endblock %}
+            </div>
+        </header>
+    </div>
+</body>
+</html>

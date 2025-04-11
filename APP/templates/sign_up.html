@@ -1,0 +1,80 @@
+{% extends "layouts/base_default.html" %}
+
+{% block title %} Registrarse {% endblock %} 
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="/static/css/sign_up.css">
+</head>
+<div class="signup-container">
+  <div class="signup-card">
+    <h1 class="signup-title">Crear Cuenta</h1>
+    
+    <form method="POST" class="signup-form">
+      <div class="form-group">
+        <label for="fullName">Nombre Completo</label> 
+        <div class="input-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <input
+              type="text"
+              name="fullName"
+              id="fullName"
+              placeholder="Ingrese su nombre completo"
+              required
+          />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="mail">Correo electrónico</label> 
+        <div class="input-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <input
+              type="email"
+              name="mail"
+              id="mail"
+              placeholder="Ingrese su correo electrónico"
+              required
+          />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="password1">Contraseña</label>
+        <div class="input-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <input
+              type="password"
+              name="password1"
+              id="password1"
+              placeholder="Cree su contraseña"
+              required
+          />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="password2">Confirmar contraseña</label>
+        <div class="input-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <input
+              type="password"
+              name="password2"
+              id="password2"
+              placeholder="Confirme su contraseña"
+              required
+          />
+        </div>
+      </div>
+      
+      <button type="submit" class="signup-button">
+        Crear cuenta
+      </button>
+      
+      <div class="form-footer">
+        <p>¿Ya tiene una cuenta? <a href="/login">Iniciar sesión</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
