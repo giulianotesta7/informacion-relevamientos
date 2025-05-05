@@ -1,0 +1,64 @@
+{% extends "layouts/base_default.html" %}
+
+{% block title %} Cargar Relevamiento {% endblock %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="/static/css/cargar_visitas.css">
+</head>
+<div class="form-container">
+    <h2 class="form-title">Planear Relevamiento</h2>
+    <form method="POST" class="relevamiento-form">
+        <div class="form-group">
+            <label for="title" class="form-label">Título:</label>
+            <input
+                type="text"
+                name="title"
+                id="title"
+                class="form-input"
+                placeholder=""
+                required
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="base_id" class="form-label">Base:</label>
+            <select id="base_id" name="base_id" class="form-select" required>
+                <option value="" disabled selected>Seleccione una base</option>
+                {% for base in bases %}
+                    <option value="{{ base.id }}">{{ base.base }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="tecnico_id" class="form-label">Técnico:</label>
+            <select id="tecnico_id" name="tecnico_id" class="form-select" required>
+                <option value="" disabled selected>Seleccione un técnico</option>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.fullName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="date" class="form-label">Fecha:</label>
+            <input
+                type="date"
+                name="date"
+                id="date"
+                class="form-input"
+                required
+            />
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="submit-button">
+                <span class="button-icon"></span> Planear Relevamiento
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

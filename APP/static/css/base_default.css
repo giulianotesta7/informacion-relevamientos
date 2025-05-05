@@ -158,3 +158,22 @@ nav a:hover {
   }
 }
 
+#ver_visitas {
+  background-color: #1e88e5; /* Azul medio */
+  color: white;
+}
+
+#ver_visitas:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+}
+
+#cargar_visita {
+  background-color: #43a047; /* Verde */
+  color: white;
+}
+
+#cargar_visita:hover {
+  background-color: #2e7d32;
+  transform: translateY(-2px);
+}
